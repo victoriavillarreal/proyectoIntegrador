@@ -3,7 +3,7 @@ const router = express.Router();
 
 const indexController = require('../controllers/indexController');
 
-router.get('/', indexController);
+router.get('/', indexController.index);
 router.get('/search-results', indexController.searchResults);
 router.get('/headerLogueado', indexController.headerLogueado);
 
