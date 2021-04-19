@@ -1,8 +1,15 @@
 const productDescription = require('../product-description');
 
 const product = {
-    product: (req,res) => {
-        return res.render('product', {productDescription});
+    detail: (req,res) => {
+        const productId = req.params.id;
+        for (let i = 0; i < productDescription.length; i++) {
+            const element = productDescription[i];
+            if (productId == element.id) {
+                return res.render('product', {product: element});
+            }
+        }
+        
     },
     productAdd: (req,res) => {
         return res.render('product-add');

@@ -32,21 +32,30 @@
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products">
-						<figure class="product-box_image">
-							<img src="/images/products/img-cafetera-moulinex.jpg" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Cafetera Moulinex</h2>
-							<p>Disfruta del café recién hecho cada mañana. Con potencia 650 watts y un filtro permanente metálico que brinda una fácil limpieza. Una jarra de vidrio refractario que cuenta con una capacidad de 6 tazas. Su sistema anti goteo permitirá servir una taza de café antes de que termine el ciclo de preparación completo.</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
+			
+			<% for (let i = 0; i < productDescription.length; i++) { %>
+				<% const product = productDescription[i]; %>	
+				   
+				<% if (product.categoría == 'novedad') { %> 
+					<div class="col-12 col-sm-6 col-lg-3">	
+						<section class="product-box">
+							<a href="/products/detail/<%= product.id %> ">
+								<figure class="product-box_image">
+									<img src="<%= product.imagen %>">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= product.nombre %> </h2>
+									<p><%= product.descripción %> </p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %> 
+			
+			<% } %> 
+			
+			<!-- <div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/products">
 						<figure class="product-box_image">
@@ -87,7 +96,7 @@
 						</article>
 					</a>
 				</section>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -98,7 +107,30 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
+
+			<% for (let i = 0; i < productDescription.length; i++) { %>
+				<% const product = productDescription[i]; %>
+				
+				<% if(product.categoría == 'comentado') { %> 
+					<div class="col-12 col-sm-6 col-lg-3">	
+						<section class="product-box">
+							<a href="/products/detail/<%= product.id %>">
+								<figure class="product-box_image">
+									<img src="<%= product.imagen %>">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= product.nombre %> </h2>
+									<p><%= product.descripción %> </p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %> 
+			
+			<% } %> 
+			
+			<!-- <div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/products">
 						<figure class="product-box_image">
@@ -155,7 +187,7 @@
 				</section>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- /Más comentados -->
 
 
