@@ -3,7 +3,7 @@ const user = {
         return res.render('register');
     },
     login: (req,res) => {
-        return NodeList.render('login');
+        return res.render('login');
     },
     profile: (req,res) => {
         return res.render('profile');
