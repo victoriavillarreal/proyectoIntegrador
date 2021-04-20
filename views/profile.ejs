@@ -1,19 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
-	
-	<title> Mercado Liebre Argentina</title>
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./css/app.css">
-</head>
+<%- include('./partials/head') %>
+
 <body>
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %>
@@ -28,7 +17,7 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title">Nombre del usuario 
-						<a href="profile-edit.html">
+						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
@@ -55,7 +44,21 @@
 			<!-- Show mis productos -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="#">
+						<figure class="product-box_image">
+							<img src="/images/products/img-cafetera-moulinex.jpg" alt="cafetera moulinex">
+						</figure>
+						<article class="product-box_data">
+							<h2>Nombre del producto</h2>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
+							<p>Comentarios: 12</p>
+						</article>
+					</a>
+				</section>
+			</div>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
@@ -69,14 +72,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -84,14 +86,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -99,14 +100,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -114,14 +114,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -129,14 +128,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -144,29 +142,13 @@
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product.html">
+					<a href="product.ejs">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
 							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="product.html">
-						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
+							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
