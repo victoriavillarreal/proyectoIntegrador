@@ -16,22 +16,36 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action='/users/register' method="GET">
+				<form action='/users/profile' method="GET">
+					<p>
+						<label for="img">Editar imagen:</label>
+					<div class="img-container offset-3 col-2">
+						<img src="/images/users/userIcon.png" alt="foto de perfil" class="foto-perfil">
+					</div>
+					</p>
 					<p>
 						<label for="nombre-apellido">Nombre y apellido:</label>
-						<input type="text" name="nombre-apellido" id="nombre-apellido">
+						<input type="text" name="nombre-apellido" id="nombre-apellido" value="Juan Pérez" disabled>
 					</p>
 					<p>
 						<label for="fecha-de-nacimiento">Fecha de nacimiento:</label>
-						<input type="date" name="fecha-de-nacimiento" id="fecha-de-nacimiento">
+						<input type="text" name="fecha-de-nacimiento" id="fecha-de-nacimiento" value="10/01/2000" disabled>
 					</p>
 					<p>
-						<label for="usuario">Usuario:</label>
-						<input type="text" name="usuario" id="usuario">
+						<label for="usuario">Nombre de usuario:</label>
+						<input type="text" name="usuario" id="usuario" value="jperez" disabled>
 					</p>
 					<p>
-						<label for="contrasenia">Contrasenã:</label>
-						<input type="password" name="contrasenia" id="contrasenia">
+						<label for="contrasenia">Contraseña:</label>
+						<input type="password" name="contrasenia" id="contrasenia" required>
+					</p>
+					<p>
+						<label for="contrasenia">Nueva contraseña:</label>
+						<input type="text" name="nContrasenia" id="nContrasenia">
+					</p>
+					<p>
+						<label for="contrasenia">Confirmar nueva contraseña:</label>
+						<input type="password" name="nContrasenia" id="nContrasenia">
 					</p>
 					<p>
 						<input type="submit" value="Enviar">
