@@ -273,6 +273,10 @@ hr {
   color: #03264C;
 }
 
+.color-fondo{
+  background-color: aliceblue;
+}
+
 /*====== Formulario ======*/
 .formulario{
   width: 375px;
