@@ -283,11 +283,11 @@ hr {
 	padding:16px;
 	border-radius:10px;
 	margin:auto;
-	background-color:#03264C;
+	background-color: darkgrey;
 }
 
 label{
-  color: white;
+  color: black;
 }
 
 .formulario.perfil{
@@ -296,7 +296,7 @@ label{
 
 form label.campo{
 	width: 150px;
-	font-weight:bold;
+	font-weight:initial;
   display:inline-block;
   text-align: end;
   margin-right: 3px;
