@@ -182,7 +182,7 @@ hr {
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: #1259c3;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -257,6 +257,7 @@ hr {
 .product-box:hover p {
   height: 36px;
   margin-top: 15px;
+  color: white;
 }
 
 .product-box:hover i {
