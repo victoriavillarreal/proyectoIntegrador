@@ -16,39 +16,39 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action='/users/profile' method="GET">
+				<form class="formulario perfil" action='/users/profile' method="GET">
 					<p>
-						<label for="img">Editar imagen:</label>
-					<div class="img-container offset-3 col-2">
-						<img src="/images/users/userIcon.png" alt="foto de perfil" class="foto-perfil">
-					</div>
+						<label class= "campo perfil" for="img">Editar imagen:</label>
+						<div class="img-container offset-3 col-2">
+							<img src="/images/users/userIcon.png" alt="foto de perfil" class="foto-perfil">
+						</div>
 					</p>
 					<p>
-						<label for="nombre-apellido">Nombre y apellido:</label>
-						<input type="text" name="nombre-apellido" id="nombre-apellido" value="Juan Pérez" disabled>
+						<label class= "campo perfil" for="nombre-apellido">Nombre y apellido:</label>
+						<input class= "ingresar" type="text" name="nombre-apellido" id="nombre-apellido" value="Juan Pérez" disabled>
 					</p>
 					<p>
-						<label for="fecha-de-nacimiento">Fecha de nacimiento:</label>
-						<input type="text" name="fecha-de-nacimiento" id="fecha-de-nacimiento" value="10/01/2000" disabled>
+						<label class= "campo perfil" for="fecha-de-nacimiento">Fecha de nacimiento:</label>
+						<input class= "ingresar" type="text" name="fecha-de-nacimiento" id="fecha-de-nacimiento" value="10/01/2000" disabled>
 					</p>
 					<p>
-						<label for="usuario">Nombre de usuario:</label>
-						<input type="text" name="usuario" id="usuario" value="jperez" disabled>
+						<label class= "campo perfil" for="usuario">Nombre de usuario:</label>
+						<input class= "ingresar" type="text" name="usuario" id="usuario" value="jperez" disabled>
 					</p>
 					<p>
-						<label for="contrasenia">Contraseña:</label>
-						<input type="password" name="contrasenia" id="contrasenia" required>
+						<label class= "campo perfil" for="contrasenia">Contraseña:</label>
+						<input class= "ingresar" type="password" name="contrasenia" id="contrasenia" required>
 					</p>
 					<p>
-						<label for="contrasenia">Nueva contraseña:</label>
-						<input type="text" name="nContrasenia" id="nContrasenia">
+						<label class= "campo perfil" for="contrasenia">Nueva contraseña:</label>
+						<input class= "ingresar" type="text" name="nContrasenia" id="nContrasenia">
 					</p>
 					<p>
-						<label for="contrasenia">Confirmar nueva contraseña:</label>
-						<input type="password" name="nContrasenia" id="nContrasenia">
+						<label class= "campo perfil" for="contrasenia">Confirmar nueva contraseña:</label>
+						<input class= "ingresar" type="password" name="nContrasenia" id="nContrasenia">
 					</p>
-					<p>
-						<input type="submit" value="Enviar">
+					<p class="boton-enviar"> 
+						<input class="link enviar" type="submit" value="Enviar">
 					</p>
 				</form>
 			</h2>
