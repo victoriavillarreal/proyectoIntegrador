@@ -16,11 +16,29 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
+			<h2 class="col-12"> 
+				<form class="formulario perfil" action='/users/profile' method="GET">
+					<p>
+						<label class= "campo perfil" for="nombre-apellido">Nombre:</label>
+						<input class= "ingresar" type="text" name="nombre-apellido" id="nombre-apellido">
+					</p>
+					<p>
+						<label class= "campo perfil" for="fecha-de-nacimiento">Imagen:</label>
+						<input class= "ingresar" type="text" name="fecha-de-nacimiento" id="fecha-de-nacimiento" value="Seleccionar archivo">
+					</p>
+					<p>
+						<label class= "campo perfil" for="usuario">ID:</label>
+						<input class= "ingresar" type="text" name="usuario" id="usuario">
+					</p>
+					<p>
+						<label class= "campo perfil" for="usuario">Precio:</label>
+						<input class= "ingresar" type="text" name="usuario" id="usuario">
+					</p>
+					<p>
+					<p class="boton-enviar"> 
+						<input class="link enviar" type="submit" value="Enviar">
+					</p>
+				</form>
 			</h2>
 
 
