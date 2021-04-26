@@ -582,7 +582,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: var(--yellow);
   }
 
   .left-navbar li {
