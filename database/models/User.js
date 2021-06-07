@@ -15,8 +15,11 @@ module.exports = (sequelize, dataTypes) => {
         usuario: {
             type: dataTypes.VARCHAR
         },
+        email: {
+            type: dataTypes.VARCHAR,
+        },
         contrasenia: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.VARCHAR,
         },
         perfil: {
             type: dataTypes.INTEGER

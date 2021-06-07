@@ -10,6 +10,34 @@ const productsRouter = require('./routes/products');
 const searchRouter = require('./routes/buscador')
 
 const app = express();
+const {User} = require('./database/models');
+
+const session = require('express-session');
+app.use(session({
+  secret: 'movies',
+  resave: false,
+  saveUninitialized: true
+}))
+
+app.use(function(req,res,next){
+  if(req.session.user === undefined && req.cookies.userId != undefined){
+    User.findByPk(req.cookies.userId)
+    .then(usuario => {
+      res.session.user = usuario;
+      next();
+    })
+    .catch(error => console.log(error));
+  } else {
+    next();
+  }
+})
+
+app.use(function(req,res,next){
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user;
+  }
+  next();
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

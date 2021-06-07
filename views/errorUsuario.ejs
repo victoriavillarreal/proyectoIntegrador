@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %>
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/header') %> 
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner">
+		<img src="/images/img-home-banner.jpg" alt="Banner de ofertas">
+	</div>
+	<!-- /Banner -->
+
+    <section class="errores">
+        <h1>Errores econtrados en el Registro</h1>
+        <ul>
+            <% for(let i = 0; i < errores.length; i++){ %> 
+                <li><%= errores[i] %> </li>
+            <% } %> 
+        </ul>
+        <a href="/users/register">Volver</a>
+    </section>  
+
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>	
+</html>

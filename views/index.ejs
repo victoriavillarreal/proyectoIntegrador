@@ -22,25 +22,22 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<% for (let i = 0; i < productDescription.length; i++) { %>
-				<% const product = productDescription[i]; %>	
-				<% if (product.categoría == 'novedad') { %> 
-					<div class="col-12 col-sm-6 col-lg-3">	
-						<section class="product-box">
-							<a href="/products/detail/<%= product.id %> ">
-								<figure class="product-box_image">
-									<img src="<%= product.imagen %>">
-								</figure>
-								<article class="product-box_data">
-									<h2><%= product.nombre %> </h2>
-									<p><%= product.descripción %> </p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-				<% } %> 
-			
+			<% for (let i = 0; i < productosNovedad.length; i++) { %>
+				<% const product = productosNovedad[i]; %>	
+				<div class="col-12 col-sm-6 col-lg-3">	
+					<section class="product-box">
+						<a href="/products/detail/<%= product.id %> ">
+							<figure class="product-box_image">
+								<img src="<%= product.imagen %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= product.nombre %> </h2>
+								<p><%= product.descripción %> </p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
 			<% } %> 
 			
 			
@@ -48,14 +45,14 @@
 	</div>
 	<!-- /Novedades -->
 	<!-- Más comentados -->
-	<div class="container products-wrapper">
+	<!-- <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12 color-fondo">
 				<h2 class="products-title">MÁS COMENTADOS</h2>
-			</div>
+			</div> -->
 			<!-- Show the "ultimos" products -->
 
-			<% for (let i = 0; i < productDescription.length; i++) { %>
+			<!-- <% for (let i = 0; i < productDescription.length; i++) { %>
 				<% const product = productDescription[i]; %>
 				
 				<% if(product.categoría == 'comentado') { %> 
@@ -72,7 +69,7 @@
 								</article>
 							</a>
 						</section>
-					</div>
+					</div> -->
 				<% } %> 
 			
 			<% } %>
