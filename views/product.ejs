@@ -4,9 +4,15 @@
 <%- include('./partials/head') %>
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/header') %>
-	<!-- /Header -->
+	<!-- Header y HeaderLogueado-->
+	<% if(locals.user) { %>
+		<%- include('./partials/HeaderLogueado') %> 
+
+	<% } else { %>
+		<%- include('./partials/header') %> 
+	<% } %>
+	
+	<!-- /Header y HeaderLogueado -->
 	
 	<!-- product detail -->
 			

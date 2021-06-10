@@ -9,7 +9,7 @@ const user = {
         if(req.session.user === undefined){
             return res.redirect('/users/login');
         } else {
-            return res.redirect('/profile');
+            return res.redirect('/users/profile');
         }
     },
     ingresar: (req,res) => {
@@ -22,11 +22,11 @@ const user = {
             } else {
                 if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)) {
                     req.session.user = usuario;
-                //     if(req.body.recordarme){
-                //         res.cookie('userId', usuario.id, {maxAge: 1000*60*60*24})
-                //     }
-                //     return res.redirect('/movies');
-                // } else {
+                     if(req.body.recordarme){
+                         res.cookie('userId', usuario.id, {maxAge: 1000*60*60*24})
+                     }
+                     return res.redirect('/users/profile');
+                 } else {
                     return res.render('userNull');
                 }
             }
@@ -71,6 +71,11 @@ const user = {
         } else {
             return res.render('errorUsuario', {errores});
         }
+    },
+    logout: (req,res) =>{
+        req.session.destroy;
+        res.cookie('userId', '', {maxAge : -1 });
+        return res.redirect('/');
     }
 };
 

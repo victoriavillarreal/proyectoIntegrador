@@ -9,5 +9,6 @@ router.get('/profile', userController.profile);
 router.get('/profile-edit', userController.profileEdit);
 router.post('/store', userController.store);
 router.post('/ingresar', userController.ingresar);
+router.get('/logout', userController.logout);
 
 module.exports = router;
