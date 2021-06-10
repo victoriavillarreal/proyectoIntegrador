@@ -14,10 +14,12 @@ const {User} = require('./database/models');
 
 const session = require('express-session');
 app.use(session({
-  secret: 'movies',
+  secret: 'proyecto',
   resave: false,
   saveUninitialized: true
 }))
+
+app.use(cookieParser());
 
 app.use(function(req,res,next){
   if(req.session.user === undefined && req.cookies.userId != undefined){
