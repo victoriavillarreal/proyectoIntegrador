@@ -13,9 +13,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         comentario: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
-        fechaDeCreación: {
+        fecha_de_creacion: {
             type: dataTypes.DATE
         }
     }
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
     const Comment = sequelize.define(alias, cols, config);
     Comment.associate = function(models){
         Comment.belongsTo(models.User, {
-            as : 'user',
+            as : 'usuario',
             foreignKey : 'usuario_id'
         }),
         Comment.belongsTo(models.Product, {
@@ -36,5 +36,5 @@ module.exports = (sequelize, dataTypes) => {
         })
     }
 
-    return Product;
+    return Comment;
 }

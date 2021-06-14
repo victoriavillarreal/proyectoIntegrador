@@ -6,20 +6,26 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        usuario_id: {
+        user_id: {
             type: dataTypes.INTEGER
         },
         imagen: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
         nombre: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
-        fechaDeCreación: {
+        fecha_de_creacion: {
             type: dataTypes.DATE
         },
         precio: {
             type: dataTypes.INTEGER
+        },
+        comentario_id: {
+            type: dataTypes.INTEGER
+        },
+        descripcion: {
+            type: dataTypes.STRING
         }
     }
     let config = {
@@ -31,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = function(models){
         Product.belongsTo(models.User, {
             as : 'user',
-            foreignKey : 'usuario_id'
+            foreignKey : 'user_id'
         }),
         Product.hasMany(models.Comment, {
             as : 'comments',

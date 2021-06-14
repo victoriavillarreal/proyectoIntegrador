@@ -6,20 +6,20 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        nombreYApellido: {
-            type: dataTypes.VARCHAR
+        nombre_y_apellido: {
+            type: dataTypes.STRING
         },
-        fechaDeNacimiento: {
+        fecha_de_nacimiento: {
             type: dataTypes.DATE
         },
         usuario: {
-            type: dataTypes.VARCHAR
+            type: dataTypes.STRING
         },
         email: {
-            type: dataTypes.VARCHAR,
+            type: dataTypes.STRING
         },
         contrasenia: {
-            type: dataTypes.VARCHAR,
+            type: dataTypes.STRING
         },
         perfil: {
             type: dataTypes.INTEGER
@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes) => {
     User.associate = function(models){
         User.hasMany(models.Product, {
             as : 'products',
-            foreignKey : 'usuario_id'
+            foreignKey : 'user_id'
         }),
         User.hasMany(models.Comment, {
             as : 'comments',

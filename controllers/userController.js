@@ -58,8 +58,8 @@ const user = {
         }
         if(errores.length === 0){
             db.User.create({
-                nombreYApellido: req.body.nombre-apellido,
-                fechaDeNacimiento: req.body.fecha-de-nacimiento,
+                nombre_y_apellido: req.body.nombre-apellido,
+                fecha_de_nacimiento: req.body.fecha-de-nacimiento,
                 usuario: req.body.usuario,
                 contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
                 perfil: 1

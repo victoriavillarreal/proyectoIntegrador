@@ -27,19 +27,20 @@
 				<h2 class="products-title">NOVEDADES</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			
+
 			<% for (let i = 0; i < productosNovedad.length; i++) { %>
-				<% const product = productosNovedad[i]; %>	
+					
 				<div class="col-12 col-sm-6 col-lg-3">	
 					<section class="product-box">
-						<a href="/products/detail/<%= product.id %> ">
+						<a href="/products/detail/<%= productosNovedad[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= product.imagen %>">
+								<img src="<%= productosNovedad[i].imagen %>">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= product.nombre %> </h2>
-								<p><%= product.descripción %> </p>
-								<p>Comentarios: 12</p>
+								<h2><%= productosNovedad[i].nombre %> </h2>
+								<h2> Cargado por: <%= productosNovedad[i].user.nombre_y_apellido %> </h2>
+								<p><%= productosNovedad[i].descripcion %> </p>
+								<!-- <p>Comentarios: 12</p> -->
 							</article>
 						</a>
 					</section>
@@ -50,38 +51,7 @@
 		</div>
 	</div>
 	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<!-- <div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12 color-fondo">
-				<h2 class="products-title">MÁS COMENTADOS</h2>
-			</div> -->
-			<!-- Show the "ultimos" products -->
-
-			<!-- <% for (let i = 0; i < productDescription.length; i++) { %>
-				<% const product = productDescription[i]; %>
-				
-				<% if(product.categoría == 'comentado') { %> 
-					<div class="col-12 col-sm-6 col-lg-3">	
-						<section class="product-box">
-							<a href="/products/detail/<%= product.id %>">
-								<figure class="product-box_image">
-									<img src="<%= product.imagen %>">
-								</figure>
-								<article class="product-box_data">
-									<h2><%= product.nombre %> </h2>
-									<p><%= product.descripción %> </p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div> -->
-				<% } %> 
-			
-			<% } %>
-			
-			
-	<!-- /Más comentados -->
+	
 
 
 	<!-- footer -->

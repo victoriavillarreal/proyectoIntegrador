@@ -8,6 +8,7 @@ const product = {
             include: ['user','comments'],
         })
         .then(product => {
+            // return res.send(product);
             return res.render('product', {product})
         })
     },
@@ -33,8 +34,9 @@ const product = {
                 // usuario: req.body.usuario ??
                 imagen: req.file ? req.file.fileName : '',
                 nombre: req.body.nombre-producto,
-                fechaDeCreación: req.body.fecha-creacion-producto,
-                precio: req.body.precio
+                fecha_de_creacion: req.body.fecha-creacion-producto,
+                precio: req.body.precio,
+                descripcion: req.body.descripcion
             })
             .then(() => {
                 return res.redirect('/products');

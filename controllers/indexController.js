@@ -7,19 +7,20 @@ const index = {
         db.Product.findAll({
             include: ['user','comments'],
             order: [
-             ['fechaDeCreacion', 'DESC']
+             ['fecha_de_creacion', 'DESC']
          ]
         })
-         .then(productosNovedad => {
+        .then(productosNovedad => {
+            // res.send(productosNovedad);
             return res.render('index', {productosNovedad})
          })
     },
-    searchResults: (req,res) => {
-        return res.render('search-results');
-    },
-    headerLogueado: (req,res) => {
-        return res.render('headerLogueado');
-    }
+    // searchResults: (req,res) => {
+    //     return res.render('search-results');
+    // },
+    // headerLogueado: (req,res) => {
+    //     return res.render('headerLogueado');
+    // }
 };
 
 module.exports = index;
