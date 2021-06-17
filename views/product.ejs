@@ -18,7 +18,7 @@
 			
 			<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= product.nombreDelProducto %> </h2> 
+			<h2 class="products-title"><%= product.nombre %> </h2> 
 			<p class="product-detail-description">
 				<a class="editar link" href="/products/product-add">Editar</a>
 			</p>
@@ -27,61 +27,31 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%= product.imagen %> " alt="" class="product-detail-img">
-					<p class="product-detail-description"><%= product.descripción %> </p>
+					<h2>Precio: $<%= product.precio %></h2>
+					<p class="product-detail-description">Descripción del producto: <%= product.descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
+							<% for(let i=0; i< product.comments.length; i++){ %>
 							<img src="/images/users/userIcon.png" alt="userIcon">
 							<div class="data">
 								<p class="user">
-								<strong> <a class= "editar link" href="/users/profile">Juan Pérez: </a> </strong>
-								Es lo que estaba buscando, gran producto. Relación precio-calidad inmejorable. Lo recomiendo.</p>
+								<strong> <a class= "editar link" href="/users/profile"> <%= product.comments[i].usuario.nombre_y_apellido %> </a> </strong>
+								<%= product.comments[i].comentario%></p>
 							</div>
+							<% } %>
 						</article>
-						<article>
-							<img src="/images/users/userIcon.png" alt="userIcon">
-							<div class="data">
-								<p class="user">
-									<strong> <a class= "editar link" href="/users/profile">José Arribas: </a> </strong>
-									Llegó en tiempo y forma. Buen precio. Anda 10 puntos, recomendadisimo!.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/useraIcon.png" alt="userIcon">
-							<div class="data">
-								<p class="user">
-									<strong> <a class= "editar link" href="/users/profile">Juana Sanchez: </a> </strong>
-									Justo lo que estaba buscando, excelente producto.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/userIcon.png" alt="userIcon">
-							<div class="data">
-								<p class="user">
-									<strong> <a class= "editar link" href="/users/profile">Martin Lopez: </a> </strong>
-									Sorprendido de lo bien que funciona. MUY recomendable.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/useraIcon.png" alt="userIcon">
-							<div class="data">
-								<p class="user">
-									<strong> <a class= "editar link" href="/users/profile">Clara Martinez: </a> </strong>
-									Tal cual imaginaba. Funciona a la perfección. Enamorada de este producto.
-								</p>
-							</div>
-						</article>
-
 					</section>
-					<form class="form" action="/users/login" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<% if(locals.user){ %>
+					<form class="form" action="/products/comentar" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
+						<input type="hidden" name="usuario_id" value="<%= product.user_id %>">
+						<input type="hidden" name="producto_id" value="<%= product.id %>">
 						<button type="submit" class="buy-now-button link">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
+					<% } %>
 				</div>
 			</div>
 		</div>

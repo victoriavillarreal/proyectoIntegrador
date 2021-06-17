@@ -22,11 +22,11 @@ const user = {
             } else {
                 if (bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)) {
                     req.session.user = usuario;
-                     if(req.body.recordarme){
-                         res.cookie('userId', usuario.id, {maxAge: 1000*60*60*24})
-                     }
-                     return res.redirect('/users/profile');
-                 } else {
+                    if(req.body.recordarme){
+                        res.cookie('userId', usuario.id, {maxAge: 1000*60*60*24})
+                    }
+                    return res.redirect('/users/profile');
+                } else {
                     return res.render('userNull');
                 }
             }

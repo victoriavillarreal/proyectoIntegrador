@@ -9,9 +9,7 @@ const search = {
                 return res.render('product', {product: element});
             }
         }
-        
     },
-
 };
 
 module.exports = search;

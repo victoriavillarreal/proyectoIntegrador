@@ -5,7 +5,7 @@ const product = {
     detail: (req,res) => {
         const productId = req.params.id;
         db.Product.findByPk(productId, {
-            include: ['user','comments'],
+            include: ['user',{association: 'comments', include: {association: 'usuario'}}],
         })
         .then(product => {
             // return res.send(product);
@@ -44,6 +44,17 @@ const product = {
             .catch(error => console.log(error));
         } else {
             return res.render('errorProducto', {errores});
+        }
+    },
+    comentar: (req,res) => {
+        let errores = [];
+        if(req.body.comentario === ''){
+            errores.push('El campo comentario no puede estar vacío');
+        }
+        if(errores.length === 0){
+            db.Comment.create({
+                producto_id: productId
+            })
         }
     }
 };
