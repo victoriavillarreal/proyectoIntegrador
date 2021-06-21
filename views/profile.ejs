@@ -22,7 +22,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> Juan Pérez 
+					<h1 class="main-title"> <%= locals.user.nombre_y_apellido %>  
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -31,9 +31,21 @@
 				</div>
 				<div>
 					<ul class="">
-						<li>6 productos</li>
+						<li><%= usuario.products.length %> 
+							<% if(usuario.products.length === 1){ %>
+								producto
+							<% } else{ %> 
+								productos
+							<% } %> 
+						</li>
 						<li>173 seguidores</li>
-						<li>892 comentarios</li>
+						<li><%= usuario.comments.length %>
+							<% if(usuario.comments.length === 1){ %>
+								comentario
+							<% } else{ %> 
+								comentarios
+							<% } %> 
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -48,54 +60,20 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
+			<% for(let i = 0; i < usuario.products.length; i++){ %> 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products/detail/6">
+					<a href="/products/detail/<%= usuario.products[i].id %> ">
 						<figure class="product-box_image">
-							<img src="/images/products/auriculares.jpeg" alt="auriculares">
+							<img src="/images/products/<%= usuario.products[i].imagen %> " alt="auriculares">
 						</figure>
 						<article class="product-box_data">
-							<h2>Samsung Galaxy Buds Live</h2>
+							<h2><%= usuario.products[i].nombre %> </h2>
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detail/5">
-						<figure class="product-box_image">
-							<img src="/images/products/iphone-xs.jpeg" alt="iphone-xs">
-						</figure>
-						<article class="product-box_data">
-							<h2>IPhone XS</h2>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detail/1">
-						<figure class="product-box_image">
-							<img src="/images/products/img-macbook-pro-2019.jpg" alt="macbook">
-						</figure>
-						<article class="product-box_data">
-							<h2>MacBook Pro 2019</h2>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detail/7">
-						<figure class="product-box_image">
-							<img src="/images/products/camara.jpeg" alt="camara">
-						</figure>
-						<article class="product-box_data">
-							<h2>Canon EOS Rebel T100</h2>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% } %> 
 		</div>
 	</div>
 	<!-- /Mis productos -->

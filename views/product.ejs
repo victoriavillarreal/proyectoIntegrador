@@ -26,13 +26,14 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= product.imagen %> " alt="" class="product-detail-img">
-					<h2>Precio: $<%= product.precio %></h2>
+					<img src="/images/products/<%= product.imagen %>" alt="" class="product-detail-img">
+					<p class="product-detail-description">Precio: $<%= product.precio %></p> 
 					<p class="product-detail-description">Descripción del producto: <%= product.descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
+							<h2 class="comentario-titulo">Comentarios:</h2>
 							<% for(let i=0; i< product.comments.length; i++){ %>
 							<img src="/images/users/userIcon.png" alt="userIcon">
 							<div class="data">
@@ -46,7 +47,8 @@
 					<% if(locals.user){ %>
 					<form class="form" action="/products/comentar" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
-						<input type="hidden" name="usuario_id" value="<%= product.user_id %>">
+						<label for="fechaDeCreacion">Fecha:</label><input type="date" name="fechaDeCreacion">
+						<input type="hidden" name="usuario_id" value="<%= locals.user.id %>">
 						<input type="hidden" name="producto_id" value="<%= product.id %>">
 						<button type="submit" class="buy-now-button link">AGREGAR COMENTARIO</button>
 					</form>

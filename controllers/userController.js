@@ -7,8 +7,8 @@ const user = {
     },
     login: (req,res) => {
         if(req.session.user === undefined){
-            return res.redirect('/users/login');
-        } else {
+            return res.render('login');
+        }else{
             return res.redirect('/users/profile');
         }
     },
@@ -34,17 +34,24 @@ const user = {
         })
     },
     profile: (req,res) => {
-        return res.render('profile');
+        userId = req.session.user.id;
+        db.User.findByPk(userId, {
+            include: ['products', 'comments']
+        })
+        .then(usuario => {
+            return res.render('profile', {usuario});
+        })
+        
     },
     profileEdit: (req,res) => {
         return res.render('profile-edit');
     },
     store: (req,res) => {
         let errores = [];
-        if(req.body.nombre-apellido === ''){
+        if(req.body.nombreApellido === ''){
             errores.push('El campo nombre y apellido no puede estar vacío');
         }
-        if(req.body.fecha-de-nacimiento === ''){
+        if(req.body.fechaDeNacimiento === ''){
             errores.push('El campo fecha de nacimiento no puede estar vacío');
         }
         if(req.body.usuario === ''){
@@ -58,10 +65,11 @@ const user = {
         }
         if(errores.length === 0){
             db.User.create({
-                nombre_y_apellido: req.body.nombre-apellido,
-                fecha_de_nacimiento: req.body.fecha-de-nacimiento,
+                nombre_y_apellido: req.body.nombreApellido,
+                fecha_de_nacimiento: req.body.fechaDeNacimiento,
                 usuario: req.body.usuario,
                 contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+                email: req.body.email,
                 perfil: 1
             })
             .then(() => {
@@ -73,7 +81,7 @@ const user = {
         }
     },
     logout: (req,res) =>{
-        req.session.destroy;
+        req.session.destroy();
         res.cookie('userId', '', {maxAge : -1 });
         return res.redirect('/');
     }

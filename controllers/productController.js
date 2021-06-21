@@ -47,14 +47,24 @@ const product = {
         }
     },
     comentar: (req,res) => {
+        productoId = req.body.producto_id;
         let errores = [];
         if(req.body.comentario === ''){
             errores.push('El campo comentario no puede estar vacío');
         }
         if(errores.length === 0){
             db.Comment.create({
-                producto_id: productId
+                producto_id: req.body.producto_id,
+                usuario_id: req.body.usuario_id,
+                comentario: req.body.comentario,
+                fecha_de_creacion: req.body.fechaDeCreacion
             })
+            .then(() => {
+                return res.redirect('/products/detail/' + productoId);
+            })
+            .catch(error => console.log(error));
+        } else {
+            return res.render('errorComentario', {errores});
         }
     }
 };
