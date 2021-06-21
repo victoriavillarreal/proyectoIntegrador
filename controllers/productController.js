@@ -1,7 +1,16 @@
 const db = require('../database/models');
 const op = db.Sequelize.Op;
+// const multer = require('multer');
+// const path = require('path');
 
 const product = {
+    products: (req,res) => {
+        db.Product.findAll()
+        .then(products => {
+            // return res.send(products)
+            return res.render('products', {products})
+        })
+    },
     detail: (req,res) => {
         const productId = req.params.id;
         db.Product.findByPk(productId, {
@@ -17,24 +26,24 @@ const product = {
     },
     store: (req,res) => {
         let errores = [];
-        if(req.body.nombre-producto === ''){
+        if(req.body.nombre === ''){
             errores.push('El campo nombre no puede estar vacío');
         }
-        if(req.body.imagen-producto === ''){
+        if(req.body.imagen === ''){
             errores.push('El campo imagen no puede estar vacío');
         }
         if(req.body.usuario === ''){
             errores.push('El campo usuario no puede estar vacío');
         }
-        if(req.body.fecha-creacion-producto === ''){
+        if(req.body.fechaCreacion === ''){
             errores.push('El campo fecha de creación no puede estar vacío');
         }
         if(errores.length === 0){
             db.Product.create({
-                // usuario: req.body.usuario ??
-                imagen: req.file ? req.file.fileName : '',
-                nombre: req.body.nombre-producto,
-                fecha_de_creacion: req.body.fecha-creacion-producto,
+                user_id: res.locals.user.id,
+                imagen: req.file ? req.file.filename : 'default-image.png',
+                nombre: req.body.nombre,
+                fecha_de_creacion: req.body.fechaCreacion,
                 precio: req.body.precio,
                 descripcion: req.body.descripcion
             })

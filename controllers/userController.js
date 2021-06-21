@@ -57,8 +57,8 @@ const user = {
         if(req.body.usuario === ''){
             errores.push('El campo usuario no puede estar vacío');
         }
-        if(req.body.contrasenia === ''){
-            errores.push('El campo contraseña no puede estar vacío');
+        if(req.body.contrasenia === '' || req.body.contrasenia.length < 3){
+            errores.push('El campo contraseña no puede estar vacío y debe tener al menos tres caracteres');
         }
         if(req.body.email === ''){
             errores.push('El campo email no puede estar vacío');
@@ -84,6 +84,45 @@ const user = {
         req.session.destroy();
         res.cookie('userId', '', {maxAge : -1 });
         return res.redirect('/');
+    },
+    profileUpdate: (req,res) => {
+        let errores = [];
+        if(req.body.nombreApellido === ''){
+            errores.push('El campo nombre y apellido no puede estar vacío');
+        }
+        if(req.body.fechaDeNacimiento === ''){
+            errores.push('El campo fecha de nacimiento no puede estar vacío');
+        }
+        if(req.body.usuario === ''){
+            errores.push('El campo usuario no puede estar vacío');
+        }
+        if(req.body.contrasenia === '' || req.body.contrasenia.length < 3){
+            errores.push('El campo contraseña no puede estar vacío y debe tener al menos tres caracteres');
+        }
+        if(req.body.email === ''){
+            errores.push('El campo email no puede estar vacío');
+        }
+        if(errores.length === 0 && locals.user.email === req.body.email){
+            db.User.update({
+                nombre_y_apellido: req.body.nombreApellido,
+                fecha_de_nacimiento: req.body.fechaDeNacimiento,
+                usuario: req.body.usuario,
+                email: req.body.email,
+                contrasenia: req.body.contrasenia,
+                perfil: 1
+            },
+            {
+                where: {
+                    id: res.locals.user.id
+                }
+            })
+            .then(() => {
+                return res.redirect('/users/profile');
+            })
+            .catch(error => console.log(error));
+        } else {
+            return res.render('errorUsuario', {errores});
+        }
     }
 };
 
