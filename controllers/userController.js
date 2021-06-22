@@ -25,7 +25,7 @@ const user = {
                     if(req.body.recordarme){
                         res.cookie('userId', usuario.id, {maxAge: 1000*60*60*24})
                     }
-                    return res.redirect('/users/profile');
+                    return res.redirect('/users/profileLogueado');
                 } else {
                     return res.render('userNull');
                 }
@@ -34,7 +34,7 @@ const user = {
         })
     },
     profile: (req,res) => {
-        userId = req.session.user.id;
+        const userId = req.params.id;
         db.User.findByPk(userId, {
             include: ['products', 'comments']
         })
@@ -42,6 +42,15 @@ const user = {
             return res.render('profile', {usuario});
         })
         
+    },
+    profileLogueado: (req,res) => {
+        const userId = res.locals.user.id;
+        db.User.findByPk(userId, {
+            include: ['products', 'comments']
+        })
+        .then(usuario => {
+            return res.render('profileLogueado', {usuario});
+        })
     },
     profileEdit: (req,res) => {
         return res.render('profile-edit');

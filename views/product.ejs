@@ -38,7 +38,7 @@
 							<img src="/images/users/userIcon.png" alt="userIcon">
 							<div class="data">
 								<p class="user">
-								<strong> <a class= "editar link" href="/users/profile"> <%= product.comments[i].usuario.nombre_y_apellido %> </a> </strong>
+								<strong> <a class= "editar link" href="/users/profile/<%= product.comments[i].usuario.id %> "> <%= product.comments[i].usuario.nombre_y_apellido %> </a> </strong>
 								<%= product.comments[i].comentario%></p>
 							</div>
 							<% } %>

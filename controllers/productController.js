@@ -5,7 +5,9 @@ const op = db.Sequelize.Op;
 
 const product = {
     products: (req,res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            include: ['user', 'comments']
+        })
         .then(products => {
             // return res.send(products)
             return res.render('products', {products})
