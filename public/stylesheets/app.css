@@ -294,7 +294,7 @@ label{
 }
 
 .formulario.perfil{
-  width: 460px;
+  width: 500px;
 }
 
 form label.campo{
@@ -332,6 +332,14 @@ form input[type="submit"].enviar{
 
 .boton-enviar{
   text-align: center;
+}
+
+.borrar{
+  margin-right: 10px;
+}
+
+.borrar-editar{
+  display: flex;
 }
 
 /*====== Footer ======*/

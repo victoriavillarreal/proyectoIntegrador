@@ -23,6 +23,11 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> <%= usuario.nombre_y_apellido %>  
+					<% if(locals.user && locals.user.id === usuario.id){ %> 
+						<a href="/users/profile-edit">
+							<i class="fas fa-cog"></i>
+						</a>
+					<% } %> 
 					</h1>
 				</div>
 				<div>

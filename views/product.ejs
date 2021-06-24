@@ -19,9 +19,9 @@
 			<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= product.nombre %> </h2> 
-			<p class="product-detail-description">
+			<!-- <p class="product-detail-description">
 				<a class="editar link" href="/products/product-add">Editar</a>
-			</p>
+			</p> -->
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -29,6 +29,17 @@
 					<img src="/images/products/<%= product.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">Precio: $<%= product.precio %></p> 
 					<p class="product-detail-description">Descripción del producto: <%= product.descripcion %> </p>
+					<p class="product-detail-description">Creado por: <a class="editar link" href="/users/profile/<%= product.user.id %> "><%= product.user.nombre_y_apellido %></a></p>
+					<!-- <a class="buy-now-button link" href="/products/destroy">Borrar producto</a> -->
+					<% if(locals.user && locals.user.id === product.user.id){ %> 
+						<div class="borrar-editar">	
+							<form class="borrar" action="/products/destroy" method="POST">
+								<input type="hidden" name="producto_id" value="<%= product.id %>">
+								<button type="submit" class="buy-now-button link">Borrar</button>
+							</form>
+							<a class="buy-now-button link" href="/products/update">Editar</a>
+						</div>
+					<% } %> 	
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -53,7 +64,9 @@
 						<button type="submit" class="buy-now-button link">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
-					<% } %>
+					<% } else { %>
+						<a class="buy-now-button link" href="/users/login">AGREGAR COMENTARIO</a>
+					<% } %> 
 				</div>
 			</div>
 		</div>

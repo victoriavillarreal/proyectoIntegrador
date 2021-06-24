@@ -20,6 +20,9 @@ router.get('/detail/:id', productController.detail);
 router.get('/product-add', productController.productAdd);
 router.post('/store', upload.single('imagen'), productController.store);
 router.post('/comentar', productController.comentar);
+router.post('/destroy', productController.destroy);
+router.get('/update', productController.update);
+router.post('/updateStore', productController.updateStore)
 
 
 

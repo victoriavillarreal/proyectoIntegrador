@@ -8,7 +8,8 @@ const index = {
             include: ['user','comments'],
             order: [
             ['fecha_de_creacion', 'DESC']
-        ]
+            ],
+            limit: 8
         })
         .then(productosNovedad => {
             // res.send(productosNovedad);
