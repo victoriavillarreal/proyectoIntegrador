@@ -12,16 +12,9 @@ const index = {
             limit: 8
         })
         .then(productosNovedad => {
-            // res.send(productosNovedad);
             return res.render('index', {productosNovedad})
         })
     },
-    // searchResults: (req,res) => {
-    //     return res.render('search-results');
-    // },
-    // headerLogueado: (req,res) => {
-    //     return res.render('headerLogueado');
-    // }
 };
 
 module.exports = index;

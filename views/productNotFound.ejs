@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %>
+
+<body>
+	<!-- Header y HeaderLogueado-->
+	<% if(locals.user) { %>
+		<%- include('./partials/HeaderLogueado') %> 
+
+	<% } else { %>
+		<%- include('./partials/header') %> 
+	<% } %>
+	
+	<!-- /Header y HeaderLogueado -->
+	
+
+    <section class="errores">
+        <h1>No hay ningún producto acorde a su búsqueda</h1>
+    </section>  
+
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>	
+</html>

@@ -1,7 +1,5 @@
 const db = require('../database/models');
 const op = db.Sequelize.Op;
-// const multer = require('multer');
-// const path = require('path');
 
 const product = {
     products: (req,res) => {
@@ -9,7 +7,6 @@ const product = {
             include: ['user', 'comments']
         })
         .then(products => {
-            // return res.send(products)
             return res.render('products', {products})
         })
     },
@@ -19,7 +16,6 @@ const product = {
             include: ['user',{association: 'comments', include: {association: 'usuario'}}],
         })
         .then(product => {
-            // return res.send(product);
             return res.render('product', {product})
         })
     },
@@ -87,6 +83,9 @@ const product = {
                 id: req.body.producto_id
             }
         })
+        .then(() => {
+            return res.redirect('/products');
+        })
     },
     update: (req,res) => {
         return res.render('productUpdate')
@@ -130,6 +129,32 @@ const product = {
             .catch(error => console.log(error));
             
         }
+    },
+    buscar: (req,res) => {
+        let resultado = req.query.buscar;
+        if(resultado === ''){
+            return res.render('products')
+        } else{
+            db.Product.findAll({
+                include: ['user', 'comments'],
+                where: {
+                    [op.or]: [
+                    { nombre: { [op.like]: '%' + resultado + '%' } },
+                    { descripcion: { [op.like]: '%' + resultado + '%'} }
+                    ]
+                }
+            })
+            .then(productosResultado => {
+                if(productosResultado.length === 0){
+                    return res.render('productNotFound');
+                } else {
+                    return res.render('productsSearch', {productosResultado});
+                }
+            })
+            .catch(error => console.log(error))
+        }
+        
+        
     }
 };
 

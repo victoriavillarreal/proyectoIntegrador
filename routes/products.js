@@ -22,7 +22,8 @@ router.post('/store', upload.single('imagen'), productController.store);
 router.post('/comentar', productController.comentar);
 router.post('/destroy', productController.destroy);
 router.get('/update', productController.update);
-router.post('/updateStore', productController.updateStore)
+router.post('/updateStore', productController.updateStore);
+router.get('/buscar', productController.buscar)
 
 
 

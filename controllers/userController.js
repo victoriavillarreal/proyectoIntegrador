@@ -27,7 +27,6 @@ const user = {
                     }
                     return res.redirect('/users/profile/' + usuario.id);
                 } else {
-                    // return res.send('probando')
                     return res.render('userNull');
                 }
             }

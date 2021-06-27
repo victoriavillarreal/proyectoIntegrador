@@ -19,9 +19,6 @@
 			<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= product.nombre %> </h2> 
-			<!-- <p class="product-detail-description">
-				<a class="editar link" href="/products/product-add">Editar</a>
-			</p> -->
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -30,7 +27,6 @@
 					<p class="product-detail-description">Precio: $<%= product.precio %></p> 
 					<p class="product-detail-description">Descripción del producto: <%= product.descripcion %> </p>
 					<p class="product-detail-description">Creado por: <a class="editar link" href="/users/profile/<%= product.user.id %> "><%= product.user.nombre_y_apellido %></a></p>
-					<!-- <a class="buy-now-button link" href="/products/destroy">Borrar producto</a> -->
 					<% if(locals.user && locals.user.id === product.user.id){ %> 
 						<div class="borrar-editar">	
 							<form class="borrar" action="/products/destroy" method="POST">
