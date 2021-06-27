@@ -202,6 +202,10 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  height: 300px;
+  background-color: white;
+  display: grid;
+  align-content: center;
 }
 
 .product-box_data {

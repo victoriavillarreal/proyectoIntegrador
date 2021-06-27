@@ -127,6 +127,7 @@ const product = {
                     }
                 })
             })
+            .catch(error => console.log(error));
             
         }
     }

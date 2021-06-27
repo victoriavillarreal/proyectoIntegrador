@@ -109,6 +109,7 @@ const user = {
                 if(req.body.usuario === '' || req.body.usuario === usuario){
                     errores.push('El campo usuario no puede estar vacío o el usuario ya está en uso');
                 }   
+                
             }
             if(req.body.nombreApellido === ''){
                 errores.push('El campo nombre y apellido no puede estar vacío');
@@ -140,6 +141,7 @@ const user = {
             } else {
                 return res.render('errorUsuario', {errores});
             }
+            
         })
     }
 };
