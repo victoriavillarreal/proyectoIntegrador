@@ -132,29 +132,23 @@ const product = {
     },
     buscar: (req,res) => {
         let resultado = req.query.buscar;
-        if(resultado === ''){
-            return res.render('products')
-        } else{
-            db.Product.findAll({
-                include: ['user', 'comments'],
-                where: {
-                    [op.or]: [
-                    { nombre: { [op.like]: '%' + resultado + '%' } },
-                    { descripcion: { [op.like]: '%' + resultado + '%'} }
-                    ]
-                }
-            })
-            .then(productosResultado => {
-                if(productosResultado.length === 0){
-                    return res.render('productNotFound');
-                } else {
-                    return res.render('productsSearch', {productosResultado});
-                }
-            })
-            .catch(error => console.log(error))
-        }
-        
-        
+        db.Product.findAll({
+            include: ['user', 'comments'],
+            where: {
+                [op.or]: [
+                { nombre: { [op.like]: '%' + resultado + '%' } },
+                { descripcion: { [op.like]: '%' + resultado + '%'} }
+                ]
+            }
+        })
+        .then(productosResultado => {
+            if(productosResultado.length === 0){
+                return res.render('productNotFound');
+            } else {
+                return res.render('productsSearch', {productosResultado});
+            }
+        })
+        .catch(error => console.log(error)) 
     }
 };
 
