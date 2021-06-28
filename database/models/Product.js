@@ -21,9 +21,6 @@ module.exports = (sequelize, dataTypes) => {
         precio: {
             type: dataTypes.INTEGER
         },
-        // comentario_id: {
-        //     type: dataTypes.INTEGER
-        // },
         descripcion: {
             type: dataTypes.STRING
         }
